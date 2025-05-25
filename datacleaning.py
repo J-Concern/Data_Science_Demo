@@ -6,9 +6,6 @@ import ccutils
 # Calls csv from imported path and assigns unclean data to data frame.
 unclean_data = pd.read_csv(path)
 df = pd.DataFrame(unclean_data)
-
-print(df.head(3))
-
 # Drops name from the data frame
 df = df.drop('Name', axis =1)
 
@@ -31,12 +28,15 @@ df['Embarked'] = (
         .astype(int)
 )
 
-#Convert into an array and parse data, step by step convert to numerical data
-#recombine
-#A through G for decks
+
+#converts cabin data to numeric
 df['Cabin'] = ccutils.edit_pd_column(df, 'Cabin')
 
-print(df.head(3))
 
-# Numericizes values into numpy array
-df = df.to_numpy()
+#converts ticket data to numeric
+strings = df['Ticket']
+df['Ticket'] = ccutils.strip_all_alpha(strings)
+
+
+#export to csv
+df.to_csv('cleandata', header=None, index=False)

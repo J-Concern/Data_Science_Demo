@@ -1,5 +1,5 @@
 import pandas as pd
-
+import re
 ## Personal Util Library
 
 #testdata
@@ -28,6 +28,13 @@ def first_letter_to_num(strings, *, base=1000):
             b = float(digits) if digits and digits.isdigit() else 0
             results.append(float(s))
     return results
+
+def strip_all_alpha(strings):
+    result = []
+    for s in strings:
+        s = re.sub(r"[^0-9]", '', s)
+        result.append(s)
+    return result
 
 # A function to take a column in pd, convert to array, then overwrite column.
 def edit_pd_column(df, column_name):
