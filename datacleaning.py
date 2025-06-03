@@ -28,7 +28,6 @@ df['Embarked'] = (
         .astype(int)
 )
 
-
 #converts cabin data to numeric
 df['Cabin'] = ccutils.edit_pd_column(df, 'Cabin')
 
@@ -37,6 +36,5 @@ df['Cabin'] = ccutils.edit_pd_column(df, 'Cabin')
 strings = df['Ticket']
 df['Ticket'] = ccutils.strip_all_alpha(strings)
 
-
 #export to csv
-df.to_csv('cleandata', header=None, index=False)
+df.to_csv('testing_cleandata', header=True, index=False)

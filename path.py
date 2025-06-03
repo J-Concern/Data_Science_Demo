@@ -1,1 +1,1 @@
-path = r"C:\Users\Caleb\Desktop\git\Data_Science_Demo\Data\train.csv"
+path = r"C:\Users\Caleb\Desktop\git\Data_Science_Demo\Data\test.csv"
